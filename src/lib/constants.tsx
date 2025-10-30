@@ -7,8 +7,8 @@ import PayPal from "@modules/common/icons/paypal"
 
 /* Map of payment provider_id to their title and icon. Add in any payment providers you want to use. */
 export const paymentInfoMap: Record<
-  string,
-  { title: string; icon: React.JSX.Element }
+    string,
+    { title: string; icon: React.JSX.Element }
 > = {
   pp_stripe_stripe: {
     title: "Credit card",
@@ -33,6 +33,9 @@ export const paymentInfoMap: Record<
   // Add more payment providers here
 }
 
+export const isMercadopago = (providerId?: string) => {
+  return providerId?.startsWith("pp_mercadopago_")
+}
 // This only checks if it is native stripe for card payments, it ignores the other stripe-based providers
 export const isStripe = (providerId?: string) => {
   return providerId?.startsWith("pp_stripe_")
